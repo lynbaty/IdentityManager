@@ -1,0 +1,32 @@
+﻿@model RoleDto
+
+<h1 class="text-info">Edit Role</h1>
+
+<form asp-controller="Roles" asp-action="Edit" role="form" method="post">
+    <h4>Edit role's name</h4>
+    <hr />
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label class="col-md-2" asp-for="Id"></label>
+        <div class="col-md-10">
+            <input disabled type="text" class="form-control" asp-for="Id" />
+            <span class="text-danger" asp-validation-for="Id"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2" asp-for="Name"></label>
+        <div class="col-md-10">
+            <input type="text" class="form-control" asp-for="Name" />
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-success">Update</button>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

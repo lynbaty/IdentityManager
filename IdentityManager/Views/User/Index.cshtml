@@ -1,0 +1,36 @@
+﻿@model List<ApplicationUser>
+
+<div class="container">
+    <div class="row my-3">
+        <h2>List User</h2>
+    </div>
+    <div class="row">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Handle</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@item.Name</th>
+                        <td>@item.Email</td>
+                        <td>@item.Role</td>
+                        <td>
+                            @Html.ActionLink("ManageClaim", "ManageClaim", new { UserId = item.Id }) |
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
